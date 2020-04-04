@@ -6,6 +6,13 @@ services:
     build: ./
     ports:
       - "8080:8080"
+    environment:
+      - spring_datasource_url=jdbc:postgresql://dbpostgresql:5432/mydb
+      - spring_datasource_username=postgres
+      - spring_datasource_password=password
+      - spring_datasource_driver-class-name=org.postgresql.Driver
+      - spring_jpa_generate-ddl=true
+      - spring_jpa_hibernate_ddl-auto=update
     depends_on:
       - dbpostgresql
   dbpostgresql:
